@@ -1,7 +1,7 @@
 package maps;
 
 import java.util.ArrayList;
-import java.util.Collection;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -48,21 +48,50 @@ public class StudentRecordsWithMap {
 		for (String currentName : students.values()) {
 			System.out.println(currentName);
 		}
-		
+
 		System.out.println("Iterating over entries:");
-		for(Entry<String, String> entry: students.entrySet()) {
+		for (Entry<String, String> entry : students.entrySet()) {
 			String key = entry.getKey(); // student id
 			String value = entry.getValue(); // student name
 			System.out.println("The key is: " + key + ", the value is: " + value);
 		}
+
+		// is this a valid student id?
+		if (students.containsKey("23A52")) {
+			System.out.println("Yes, 23A52 is a valid student id");
+		}
+
+		if (students.containsKey("1234")) {
+			System.out.println("I found the key");
+		}
+
+		// is this a valid student name?
+		if (students.containsValue("Harvey Dent")) {
+			System.out.println("I found Harvey");
+		}
+
+		// do we have students?
+		if (!students.isEmpty()) {
+			System.out.println("We have students!");
+		}
+
+		// remove Harvey
+		students.remove("23A52");
+		System.out.println(students);
+
+		// how many students are there?
+		System.out.println("There are " + students.size() + " students.");
+
 		System.out.println();
-		
+
 		// sorting a list (sidebar)
 		System.out.println("Sorting a list:");
 		List<String> listOfClasses = new ArrayList<>();
 		listOfClasses.add("Philosophy");
 		listOfClasses.add("Botany");
 		listOfClasses.add("French Literature");
+		System.out.println(listOfClasses);
+		Collections.sort(listOfClasses); // sorts according to "natural order" - see javadoc
 		System.out.println(listOfClasses);
 	}
 
